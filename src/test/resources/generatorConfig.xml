@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="Mysql" targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers" value="tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.MySqlMapper"/>
+			<!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+			<property name="caseSensitive" value="true" />
+		</plugin>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.10.191:3306/PSOD" userId="root"
+			password="psod">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="cn.com.model" targetProject="src\main\java">
+			<property name="rootClass" value="cn.com.model.BaseModel"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mybatis" targetProject="src\main\resources\conf\" />
+
+		<javaClientGenerator targetPackage="cn.com.dao"
+			targetProject="src\main\java" type="XMLMAPPER" />
+			
+		<table tableName="MSG_REMINDING">
+			<generatedKey column="ID" sqlStatement="Mysql" identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>

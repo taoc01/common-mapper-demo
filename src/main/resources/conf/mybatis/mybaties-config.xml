@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 
+		通常数据库列使用大写单词命名，单词间用下划线分隔；而java属性一般遵循驼峰命名法。 
+		为了在这两种命名方式之间启用自动映射，需要将 mapUnderscoreToCamelCase设置为true。
+		 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- 
+			当结果集中含有Null值时是否执行映射对象的setter或者Map对象的put方法。此设置对于原始类型如int,boolean等无效。
+		-->
+		<setting name="callSettersOnNulls" value="true"/>
+	</settings>
+	
+	<typeHandlers>
+
+	</typeHandlers>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper"/>
+	</plugins>
+</configuration>
